@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>Gestion_Etudiant</title>
+</head>
+<body>
+    <section class="navbar">
+        <div class="logo">
+           <img src="./image/373912b62bce4134a6684ea72d9f18e9-removebg-preview.png" alt="student">
+        </div>
+
+        <div class="bouton">
+            <button id="btnAdd" class="btnAdd">
+               <i class="fa-solid fa-user-plus"></i> Add student
+            </button>
+
+            <button id="AllDelete" class="AllDelete">
+                <i class="fa-solid fa-trash"></i> Delete all
+            </button>
+
+            <button id="Export" class="Export">
+                 <i class="fa-solid fa-file-export"></i> Export
+            </button>
+            
+        </div>
+    </section>
+
+    <div id="modal" class="modal hidden">
+        <div id="formul" class="formul ">
+            <form  class="form" id="form">
+                <div class="toff">
+                    <label for="photoInput" class="photo-label">
+                       <img id="imgPreview" src="./image/" alt="">
+                    </label>
+
+                    <input type="file" id="photoInput" accept="image/*" hidden>
+                </div>
+
+                <div class="contain">
+                    <div class="item1">
+                      <label for="text">Matricule: </label>
+                      <input id="mat" type="text" placeholder="Entez id student....">
+                      <small class="error" id="matError"></small>         
+                    </div>
+
+                    <div class="item">
+                        <div class="item1">
+                          <label for="text">Name: </label>
+                          <input id="name" type="text" placeholder="Entez name here...">
+                          <small class="error" id="nameError"></small>         
+                        </div>
+                    
+                        <div class="item1">
+                           <label for="">Age: </label>
+                           <input id="age" type="number" placeholder="Entez age here...">
+                           <small class="error" id="ageError"></small>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="item1">
+                           <label for="text">Surname: </label>
+                           <input id="surname" type="text" placeholder="Entez surname here...">
+                           <small class="error" id="surnameError"></small>
+                        </div>
+                    
+                        <div class="item1">
+                            <label for="sexe">Sexe: </label>
+                            <select name="sexe" id="sexe">
+                               <option value="Masculin">M</option>
+                               <option value="Feminin">F</option>
+                            </select>
+                            <small class="error" id="sexeError"></small>
+                        </div>
+                    </div>
+                
+                    <div class="item1">
+                        <label for="email">Email: </label>   
+                        <input id="email" type="email" placeholder="Entez email here...">
+                        <small class="error" id="emailError"></small>
+                    </div> <br>
+
+                    <div id="errorMsg" class="error-msg"></div>
+                </div>
+
+                <div class="btnAction">
+                    <button type="submit" id="submit" >enregistrer</button>
+                    <button type="button" id="btnReset">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+    <section class="sect1">
+        
+       <div class="search">
+
+            <div class="rech">
+                <input id="research"  type="text" placeholder="Entez your search here....">
+                <img src="./image/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="icon">
+                
+            </div>
+            <div class="total"><span id="totalCount">0</span> Student(s)</div>
+
+        </div>
+
+        <section id="sect2" class="sect2">
+
+           <!-- liste des etudiants ici -->
+        </section>
+
+    </section>
+
+
+
+
+
+    <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</body>
+</html>

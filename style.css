@@ -1,0 +1,451 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    background: #f4f6f9;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+.navbar{
+    width: 260px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0f172a;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+    color: white;
+}
+
+/* photo de la navbar */
+.navbar .logo{
+    position: relative;
+}
+
+.navbar .logo img{
+    width: 90px;
+    height: 90px;
+    background: rgb(95, 177, 173);
+    border-radius: 50%;
+}
+
+/* les bouton ajouter, supprimer et exporter */
+
+.bouton{
+    margin-top: 10rem;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.bouton button{
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.bouton button:hover{
+    transform: translateY(5px);
+    opacity: 0.9;
+}
+
+.bouton .btnAdd,
+.bouton .AllDelete,
+.bouton .Export{
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 10px 15px;
+    color: white;
+    
+}
+
+.bouton .btnAdd:active,
+.bouton .AllDelete:active,
+.bouton .Export:active{
+    transform: translateY(2px);
+    cursor: pointer;
+}
+
+.bouton .btnAdd{
+    color: white;
+    background: #4f46e5;
+
+}
+
+.bouton .AllDelete,
+.form .btnAction #btnReset{
+    background: #ef4444;
+    color: white;
+}
+
+.bouton .Export,
+.form .btnAction #submit{
+    background: #22c55e;
+    color: white;
+}
+
+
+/* patie du formulaire */
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(1px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.modal.show{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal.show .formul{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.formul{
+    transform: translateY(1000px) scale(0.85);
+    opacity: 0;
+    transition: all 0.4s ease;
+    height: 620px;
+    right: 24%;
+    position: relative;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    background: rgb(95, 177, 173);
+
+}
+
+.formul .form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 0.5rem;
+    border: none;
+}
+
+
+/* profil de l`etudiant */
+.form .toff{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+ 
+}
+
+.photo-label{
+    display: block;
+    cursor: pointer;
+}
+.form .toff img{
+    width: 90px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: white;
+    box-shadow: inset 20px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form .toff img:hover{
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+.form .contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+}
+.contain .item{
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 1rem;
+}
+
+.contain .item1{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contain .item1 #mat,
+.contain .item1 #email{
+    width: 300px;
+}
+.contain .item1 label{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.contain .item1 input,
+.item .item1 select{
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+    padding: 8px;
+    border-radius: 5px;
+    outline: none;
+    height: 40px;
+}
+
+.item .item1 select,
+.contain .item #age{
+    width: 100px;
+}
+
+
+
+/* bouton enregistrer annuler */
+.form .btnAction{
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 5px;
+}
+
+.form .btnAction button{
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: 10px ;
+    color: #fff;
+}
+
+.error{
+    color: red;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.input-error{
+    border: 2px solid red;
+}
+.error-msg{
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* section des informations des etudiants */
+.sect1{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    background: #fff;
+    width: 100%;
+}
+
+.search{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    background: #3e52a5;
+    padding: 20px;
+    height: 100px;
+}
+
+.search .total{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.search .rech{
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    border-radius: 30px;
+    overflow: hidden;
+    align-items: center;
+    background: #fff;
+    padding: 5px 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.search .rech input{
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 3px;
+    font-weight: bold;
+    background: transparent;
+    color: black;
+    border: none;
+    outline: none;
+}
+
+
+
+/* sect2 pour la liste des etudiants sous formes de cartes */
+
+.sect2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+
+    height: calc(100vh - 150px); /* ajuste selon ton header */
+    overflow-y: auto;
+    padding-top: 20px;
+    padding-left: 50px;
+    scroll-behavior: smooth;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: 300px;
+    width: 260px;
+    padding: 20px;
+    border-radius: 20px;
+    background:rgb(240, 247, 246);
+    box-shadow: inset 0 100px 25px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+
+}
+
+
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid none;
+}
+
+.card h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card p{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.568);
+    font-weight: 600;
+}
+
+.card .card-mat{
+    font-size: 18px;
+    font-weight: bold;
+    color: #22c55e;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.boutons button{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit-btn{
+    background: orange;
+    color: white;
+}
+.edit-btn svg:hover{
+    background: orange;
+    color: white;
+}
+
+.delete-btn{
+    background: #ef4444;
+    color: white;
+}
+.delete-btn svg:hover{
+    background: #ef4444;
+    color: white;
+}
+
+.download-btn{
+    background: #22c55e;
+    color: white;
+}
+.download-btn svg:hover{
+    background: #22c55e;
+    color: white;
+}
+
+.boutons button:hover{
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 400px;  
+    text-align: center;  
+}
+
+.empty-icon{
+    width: 90px;
+    
+}
+
+.boutons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.boutons button{
+    font-size: 15px;
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+
+
